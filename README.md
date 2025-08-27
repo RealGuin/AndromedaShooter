@@ -1,0 +1,1 @@
+This is a simple and short project using the Pygame library for the Applied Programming Language course, based on the corresponding practical lessons. A spaceship shooter with a cyberpunk/futuristic theme.
