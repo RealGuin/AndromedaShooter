@@ -1,8 +1,10 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import pygame
+
+from code.Level import Level
 from code.Menu import Menu
-from code.const import WIN_WIDTH, WIN_HEIGHT
+from code.const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
 
 
 class Game:
@@ -13,5 +15,11 @@ class Game:
     def run(self):
         while True:
             menu = Menu(self.window)
-            menu.run()
-            pass
+            menu_return = menu.run()
+
+            if menu_return == MENU_OPTION[0]:
+                level = Level(self.window, name= 'Level1bg', menu_option = menu_return)
+                level_return = level.run()
+            else:
+                    pygame.quit()
+                    quit()

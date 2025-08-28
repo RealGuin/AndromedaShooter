@@ -6,11 +6,20 @@ COLOR_GREEN_NEON = (187, 0, 255)
 COLOR_ELETRIC_YELLOW = (255, 255, 51)
 COLOR_AMBAR = (255, 191, 0)
 
+# E
+ENTITY_SPEED = {
+    'Level1Bg01': 0.01,
+    'Level1Bg02': 0.02,
+    'Level1Bg03': 0.03,
+    'Level1Bg04': 0.04,
+    'Level1Bg05': 0.05,
+    'Level1Bg06': 0.06,
+}
 # M
 MENU_OPTION = ('NEW GAME',
                'EXIT')
 
 # W
-WIN_WIDTH = 800
-WIN_HEIGHT = 600
+WIN_WIDTH = 576
+WIN_HEIGHT = 324
 
