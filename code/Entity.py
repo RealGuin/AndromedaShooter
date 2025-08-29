@@ -3,8 +3,6 @@
 from abc import ABC, abstractmethod
 import pygame.image
 
-from code.const import WIN_WIDTH, WIN_HEIGHT
-
 
 class Entity(ABC):
     def __init__(self, name: str, position: tuple):
