@@ -45,7 +45,7 @@ ENTITY_HEALTH = {
     'Enemy1': 20,
     'Enemy2': 20,
     'Enemy3': 20,
-    'Boss': 300,
+    'Boss': 50,
 }
 
 ENTITY_SHOT_DELAY = {
@@ -89,8 +89,8 @@ PLAYER_KEY_RIGHT = {'Player': pygame.K_RIGHT}
 PLAYER_KEY_SHOOT = {'Player': pygame.K_SPACE}
 
 # S
-SPAWN_TIME_ENEMY = 3000
-SPAWN_TIME_BOSS = 3000
+SPAWN_TIME_ENEMY = 2000
+SPAWN_TIME_BOSS = 2000
 
 # W
 WIN_WIDTH = 576

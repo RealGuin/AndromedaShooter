@@ -42,4 +42,7 @@ class Boss(Entity):
         self.shot_delay -= 1
         if self.shot_delay == 0:
             self.shot_delay = ENTITY_SHOT_DELAY[self.name]
+            sound = pygame.mixer.Sound('./asset/soundShot02.mp3')
+            sound.set_volume(0.1)
+            sound.play()
             return BossShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))
