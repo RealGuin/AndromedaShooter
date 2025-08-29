@@ -1,16 +1,17 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import random
-
 import pygame
 
+from code.BossShot import BossShot
 from code.Entity import Entity
-from code.const import ENTITY_SPEED, WIN_HEIGHT
+from code.const import ENTITY_SPEED, WIN_HEIGHT, ENTITY_SHOT_DELAY
 
 
 class Boss(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
+        self.shot_delay = ENTITY_SHOT_DELAY[self.name]
 
         self.spawn_time = pygame.time.get_ticks()
         self.active_speed = ENTITY_SPEED[self.name]
@@ -40,4 +41,7 @@ class Boss(Entity):
             self.dir_y *= -1
 
     def shoot(self, ):
-        pass
+        self.shot_delay -= 1
+        if self.shot_delay == 0:
+            self.shot_delay = ENTITY_SHOT_DELAY[self.name]
+            return BossShot(name=f'{self.name}Shot', position=(self.rect.centerx, self.rect.centery))

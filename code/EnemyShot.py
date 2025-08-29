@@ -2,14 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from Entity import Entity
+from code.const import ENTITY_SPEED
 
 
 class EnemyShot(Entity):
-    def __init__(self):
-        pass
-
-    def shoot(self, ):
-        pass
+    def __init__(self, name: str, position: tuple):
+        super().__init__(name, position)
 
     def move(self, ):
-        pass
+        self.rect.centerx -= ENTITY_SPEED[self.name]

@@ -19,7 +19,7 @@ class EntityFactory:
                     list_bg.append(Background(name=f'Level1Bg{i:02d}', position=(0, 0)))
                     list_bg.append(Background(f'Level1Bg{i:02d}', position=(WIN_WIDTH, 0)))
                 return list_bg
-            case 'shipPlayer':
+            case 'Player':
                 return Player(entity_name, position=(50, WIN_HEIGHT / 2))
             case 'Enemy1':
                 return Enemy(name='Enemy1', position=(WIN_WIDTH + 10, random.randint(50, WIN_HEIGHT - 50)))
