@@ -5,14 +5,14 @@ import random
 import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
-
 from code.Boss import Boss
 from code.Enemy import Enemy
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
 from code.Player import Player
-from code.const import COLOR_WHITE, WIN_HEIGHT, EVENT_ENEMY, EVENT_BOSS_START, SPAWN_TIME_ENEMY, SPAWN_TIME_BOSS
+from code.const import COLOR_WHITE, WIN_HEIGHT, EVENT_ENEMY, EVENT_BOSS_START, SPAWN_TIME_ENEMY, SPAWN_TIME_BOSS, \
+    COLOR_RED, COLOR_GREEN, WIN_WIDTH
 
 
 class Level:
@@ -47,7 +47,10 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:
                         self.entity_list.append(shoot)
-
+                if ent.name == 'Player':
+                    self.level_text(14, f'Player - Health: {ent.health}', COLOR_GREEN, (10, 25))
+                if ent.name == 'Boss':
+                    self.level_text(14, f'BOSS - Health: {ent.health}', COLOR_RED, (WIN_WIDTH - 200, 25))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -56,6 +59,7 @@ class Level:
                     choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
                 elif event.type == EVENT_BOSS_START:
+
                     pygame.time.set_timer(EVENT_ENEMY, 0)
                     self.entity_list.append(EntityFactory.get_entity('Boss'))
                     self.music = False

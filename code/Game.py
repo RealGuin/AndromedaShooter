@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
 import pygame
 from code.Level import Level
 from code.Menu import Menu
@@ -21,4 +22,4 @@ class Game:
                 level_return = level.run()
             else:
                     pygame.quit()
-                    quit()
+                    sys.exit()

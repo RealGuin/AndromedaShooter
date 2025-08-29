@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import random
 import pygame
-
 from code.BossShot import BossShot
 from code.Entity import Entity
 from code.const import ENTITY_SPEED, WIN_HEIGHT, ENTITY_SHOT_DELAY
@@ -12,7 +11,6 @@ class Boss(Entity):
     def __init__(self, name: str, position: tuple):
         super().__init__(name, position)
         self.shot_delay = ENTITY_SHOT_DELAY[self.name]
-
         self.spawn_time = pygame.time.get_ticks()
         self.active_speed = ENTITY_SPEED[self.name]
         self.stopped = False
@@ -29,7 +27,7 @@ class Boss(Entity):
 
         self.rect.centerx -= self.active_speed
 
-        # scree limits
+        # screen limits
         if self.rect.top <= 0:
             self.rect.top = 0
             self.dir_y = 1
