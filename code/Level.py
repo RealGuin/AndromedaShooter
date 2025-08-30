@@ -13,7 +13,7 @@ from code.EntityFactory import EntityFactory
 from code.EntityMediator import EntityMediator
 from code.Player import Player
 from code.const import COLOR_WHITE, WIN_HEIGHT, EVENT_ENEMY, EVENT_BOSS_START, SPAWN_TIME_ENEMY, SPAWN_TIME_BOSS, \
-    COLOR_RED, COLOR_GREEN, WIN_WIDTH, COLOR_ELETRIC_YELLOW
+    COLOR_RED, COLOR_GREEN, WIN_WIDTH
 
 
 class Level:
@@ -66,6 +66,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_ESCAPE:
+                        return False
                 if event.type == EVENT_ENEMY and not event.type == EVENT_BOSS_START:
                     choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
@@ -81,20 +84,33 @@ class Level:
             # Collisions
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
-            # Detectar morte do Boss
+            # Detect Boss death
             if self.boss_spawned and not self.boss_dead and not any(ent.name == 'Boss' for ent in self.entity_list):
                 self.boss_dead = True
                 self.start_explosion('Boss')
-
-            # Detectar morte do Player
+                self.img_the_end = pygame.image.load('./asset/theEnd.png').convert_alpha()
+                self.img_the_end = pygame.transform.scale(self.img_the_end, (600, 800))
+                self.rect_the_end = self.img_the_end.get_rect(center=(WIN_WIDTH // 2, WIN_HEIGHT // 2))
+                for ent in self.entity_list:
+                    if ent.name == 'Player':
+                        ent.health = 999
+            # Detect player death
             if not self.game_over and not any(ent.name == 'Player' for ent in self.entity_list):
                 self.game_over = True
                 self.start_explosion('Player')
+                self.img_game_over = pygame.image.load('./asset/gameOver.png').convert_alpha()
+                self.img_game_over = pygame.transform.scale(self.img_game_over, (300, 300))
+                self.rect_game_over = self.img_game_over.get_rect(center=(WIN_WIDTH // 2, WIN_HEIGHT // 2))
 
             # HUD
             self.level_text(14, f'Demo Version 1.0', COLOR_WHITE, (10, 5))
             self.level_text(14, f'FPS: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
-            self.level_text(14, f'Entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+            #self.level_text(14, f'Entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+
+            if self.boss_dead:
+                self.window.blit(self.img_the_end, self.rect_the_end)
+            if self.game_over:
+                self.window.blit(self.img_game_over, self.rect_game_over)
 
             pygame.display.flip()
 
