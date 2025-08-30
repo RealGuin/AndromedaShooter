@@ -10,7 +10,7 @@ from code.const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
 class Game:
     def __init__(self):
         pygame.init()
-        self.window = pygame.display.set_mode(size = (WIN_WIDTH, WIN_HEIGHT))
+        self.window = pygame.display.set_mode(size=(WIN_WIDTH, WIN_HEIGHT))
 
     def run(self):
         while True:
@@ -18,8 +18,8 @@ class Game:
             menu_return = menu.run()
 
             if menu_return == MENU_OPTION[0]:
-                level = Level(self.window, name= 'Level1bg', menu_option = menu_return)
+                level = Level(self.window, name='Level1bg', menu_option=menu_return)
                 level.run()
             else:
-                    pygame.quit()
-                    sys.exit()
+                pygame.quit()
+                sys.exit()

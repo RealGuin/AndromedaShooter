@@ -1,11 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 import sys
-
 import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
-
 from code.const import WIN_WIDTH, COLOR_SHOCKING_PINK, COLOR_CYAN_NEON, MENU_OPTION, COLOR_ELETRIC_YELLOW, COLOR_WHITE
 
 

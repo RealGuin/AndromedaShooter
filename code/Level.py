@@ -105,7 +105,7 @@ class Level:
             # HUD
             self.level_text(14, f'Demo Version 1.0', COLOR_WHITE, (10, 5))
             self.level_text(14, f'FPS: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
-            #self.level_text(14, f'Entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+            # self.level_text(14, f'Entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
 
             if self.boss_dead:
                 self.window.blit(self.img_the_end, self.rect_the_end)

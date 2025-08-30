@@ -29,7 +29,6 @@ class EntityMediator:
                 ent.health = 0
 
     @staticmethod
-
     def __verify_collision_entity(ent1, ent2):
         valid_interaction = False
         if isinstance(ent1, Enemy) and isinstance(ent2, PlayerShot):
@@ -68,10 +67,8 @@ class EntityMediator:
                     ent1.rect.left <= ent2.rect.right and
                     ent1.rect.bottom >= ent2.rect.top and
                     ent1.rect.top <= ent2.rect.bottom):
-
                 ent1.health -= ent2.damage
                 ent2.health -= ent1.damage
-
 
     @staticmethod
     def verify_collision(entity_list: list[Entity]):

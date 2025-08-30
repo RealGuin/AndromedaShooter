@@ -3,10 +3,6 @@
 import pygame
 
 
-
-import pygame
-
-
 class Explosion:
     def __init__(self, window: pygame.Surface):
         self.window = window

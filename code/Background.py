@@ -1,10 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
 from code.Entity import Entity
 from code.const import WIN_WIDTH, ENTITY_SPEED
-
-
 
 
 class Background(Entity):
