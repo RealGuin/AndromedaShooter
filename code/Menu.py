@@ -13,7 +13,7 @@ class Menu:
         self.surf = pygame.image.load('./asset/MenuBg.png').convert_alpha()
         self.rect = self.surf.get_rect(left=0, top=0)
 
-    def run(self, ):
+    def run(self):
         menu_option = 0
         pygame.mixer_music.load('./asset/soundMenu.mp3')
         pygame.mixer_music.set_volume(0.2)

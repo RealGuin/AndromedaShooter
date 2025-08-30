@@ -15,5 +15,5 @@ class Entity(ABC):
         self.damage = ENTITY_DAMAGE[self.name]
 
     @abstractmethod
-    def move(self, ):
+    def move(self):
         pass

@@ -38,7 +38,7 @@ class Boss(Entity):
         if random.random() < 0.01:
             self.dir_y *= -1
 
-    def shoot(self, ):
+    def shoot(self):
         self.shot_delay -= 1
         if self.shot_delay == 0:
             self.shot_delay = ENTITY_SHOT_DELAY[self.name]
