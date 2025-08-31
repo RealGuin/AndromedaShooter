@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from Entity import Entity
+from code.Entity import Entity
 from code.const import ENTITY_SPEED
 
 
